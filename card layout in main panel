@@ -1,0 +1,53 @@
+Ext.define('Beykaar.view.Main', {
+    extend: 'Ext.Panel',
+    xtype: 'main',
+    requires: [
+        'Ext.TitleBar'
+		,'Beykaar.view.LoginContainer'
+    ]
+	
+	
+	
+    ,config: {
+		layout: 'fit'  // fit resolves card layout issues here
+        ,items: [
+            {
+				xtype : 'toolbar',
+				docked: 'top',
+				title: 'My Toolbar'
+				,items:[
+					{
+						xtype		: 'button'
+						,text		: 'Logout'
+						,itemId		: 'logoutbtn'
+						,align		: 'right'
+					}
+				]
+			}
+			,{
+                xtype	: 'panel'
+				,itemId	: 'containerid'
+				,title:'card'
+				,layout	:{
+					type	: 'card'
+					,align	: 'stretch'
+				}
+				,activeItem:0
+				,items	: [
+					{
+						xtype	:'logincontainer'
+						// xtype:'panel'
+						,html	:'logincontainer'
+						,flex	: 1
+					}
+					,{
+						// xtype:'bodycontainer'
+						xtype:'panel'
+						,flex	: 1
+						,html	:'bodycontainer'
+					}
+				]
+				
+            }
+        ]
+    }
